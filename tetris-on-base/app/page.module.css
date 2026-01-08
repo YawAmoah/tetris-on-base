@@ -1,0 +1,162 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5832rem;
+  z-index: 1100;
+  position: relative;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.6075rem;
+  position: relative;
+  z-index: 1101;
+}
+
+/* Match Wallet component height to NetworkIndicator */
+.headerRight :global(button),
+.headerRight :global([role="button"]),
+.headerRight :global([class*="Button"]),
+.headerRight :global([class*="okui"]) button,
+.headerRight :global(button[class*="okui"]),
+.headerRight :global([class*="okui"] [role="button"]),
+.headerRight :global([class*="okui"] [class*="Button"]),
+.headerRight :global(> *:not(.networkIndicator) button),
+.headerRight :global(> *:not(.networkIndicator) [role="button"]) {
+  height: auto !important;
+  min-height: calc(0.405rem + 0.70875rem + 0.405rem + 1.62px) !important; /* padding-top + font-size + padding-bottom + border */
+  padding: 0.405rem 0.81rem !important;
+  font-size: 0.70875rem !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  .headerRight :global(button),
+  .headerRight :global([role="button"]),
+  .headerRight :global([class*="Button"]),
+  .headerRight :global([class*="okui"]) button,
+  .headerRight :global(button[class*="okui"]),
+  .headerRight :global([class*="okui"] [role="button"]),
+  .headerRight :global([class*="okui"] [class*="Button"]),
+  .headerRight :global(> *:not(.networkIndicator) button),
+  .headerRight :global(> *:not(.networkIndicator) [role="button"]) {
+    min-height: calc(0.324rem + 0.6075rem + 0.324rem + 1.62px) !important;
+    padding: 0.324rem 0.6075rem !important;
+    font-size: 0.6075rem !important;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5832rem;
+  padding-bottom: 1.1664rem;
+  overflow-y: auto;
+}
+
+
+.leaderboardSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8748rem;
+  align-items: stretch;
+  margin-top: -0.5832rem;
+}
+
+.startButton {
+  background: linear-gradient(135deg, #00D4FF 0%, #0052D4 100%);
+  color: white;
+  border: none;
+  border-radius: 7.776px;
+  padding: 0.486rem 0.972rem;
+  font-size: 0.8424rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 3.3696px 10.1088px rgba(0, 212, 255, 0.3);
+  min-width: 235.71px;
+  max-width: 269.73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.44817rem;
+  box-sizing: border-box;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5.4px 14.4px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(135deg, #00E5FF 0%, #0066FF 100%);
+}
+
+.startButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1.8px 7.2px rgba(0, 212, 255, 0.3);
+}
+
+.combinedBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8748rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 777.6px;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.4) 0%, rgba(15, 15, 30, 0.4) 100%);
+  border-radius: 15.552px;
+  padding: 1.1664rem;
+  box-shadow: 
+    0 12.96px 38.88px rgba(0, 0, 0, 0.5),
+    inset 0 0 38.88px rgba(0, 212, 255, 0.05),
+    0 0 25.92px rgba(0, 212, 255, 0.1);
+  border: 2.592px solid rgba(0, 212, 255, 0.2);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.gameContent {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8748rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.combinedBox::before {
+  content: '';
+  position: absolute;
+  top: -5.184px;
+  left: -5.184px;
+  right: -5.184px;
+  bottom: -5.184px;
+  background: linear-gradient(135deg, rgba(45, 45, 68, 0.32) 0%, rgba(26, 26, 46, 0.32) 50%, rgba(15, 15, 30, 0.32) 100%);
+  border-radius: 18.144px;
+  z-index: -1;
+  box-shadow: 
+    0 0 0 1.296px rgba(0, 212, 255, 0.3),
+    inset 0 0 25.92px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .combinedBox {
+    padding: 0.8748rem;
+    gap: 0.5832rem;
+  }
+}

@@ -1,0 +1,488 @@
+.tetrisContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.936036rem;
+  padding: 0;
+  max-width: 470.448px;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  position: relative;
+}
+
+.gameInfo {
+  display: flex;
+  gap: 0.648rem;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.infoBox {
+  background: rgba(0, 82, 212, 0.15);
+  border: 1.296px solid rgba(0, 212, 255, 0.4);
+  border-radius: 7.776px;
+  padding: 0.35803377rem 0.972rem;
+  text-align: center;
+  min-width: 64.8px;
+  box-shadow: 
+    inset 0 1.296px 5.184px rgba(0, 0, 0, 0.3),
+    0 1.296px 5.184px rgba(0, 212, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.infoBox h3 {
+  font-size: 0.56725515rem;
+  font-weight: 600;
+  margin: 0 0 0.11934459rem 0;
+  color: rgba(0, 212, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.648px;
+  font-family: 'Courier New', monospace;
+}
+
+.infoBox p {
+  font-size: 0.9724374rem;
+  font-weight: 700;
+  margin: 0;
+  color: #00D4FF;
+  text-shadow: 0 0 5.184px rgba(0, 212, 255, 0.5);
+  font-family: 'Courier New', monospace;
+}
+
+.gameBoardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.624024rem;
+  width: 100%;
+}
+
+.gameBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3.888px solid rgba(0, 212, 255, 0.4);
+  border-radius: 5.184px;
+  background: 
+    linear-gradient(135deg, rgba(0, 82, 212, 0.2) 0%, rgba(0, 20, 40, 0.3) 100%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 212, 255, 0.02) 0px,
+      rgba(0, 212, 255, 0.02) 0.648px,
+      transparent 0.648px,
+      transparent 1.296px
+    );
+  padding: 5.184px;
+  padding-bottom: 0.69336rem;
+  box-shadow: 
+    inset 0 0 25.92px rgba(0, 0, 0, 0.5),
+    inset 0 0 12.96px rgba(0, 212, 255, 0.1),
+    0 0 12.96px rgba(0, 212, 255, 0.3),
+    0 5.184px 20.736px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+  gap: 0.624024rem;
+}
+
+.gameBoardGrid {
+  display: inline-block;
+}
+
+/* Screen glass effect */
+.gameBoard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 82, 212, 0.1) 100%
+  );
+  border-radius: 3.6px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.row {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.cell {
+  width: 23.5224px;
+  height: 20.8008px;
+  border: 0.81px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+/* Classic Tetris outline for filled cells with colored outlines */
+.cell.filled {
+  border: none;
+  border-top: 3px solid var(--outline-light, rgba(255, 255, 255, 1));
+  border-left: 3px solid var(--outline-light, rgba(255, 255, 255, 1));
+  border-bottom: 3px solid var(--outline-dark, rgba(0, 0, 0, 1));
+  border-right: 3px solid var(--outline-dark, rgba(0, 0, 0, 1));
+  box-shadow: 
+    inset 2px 2px 0 var(--outline-light, rgba(255, 255, 255, 0.6)),
+    inset -2px -2px 0 var(--outline-dark, rgba(0, 0, 0, 0.6));
+}
+
+/* Add outline overlay that sits above the logo */
+.cell.filled::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 3px solid var(--outline-light, rgba(255, 255, 255, 1));
+  border-left: 3px solid var(--outline-light, rgba(255, 255, 255, 1));
+  border-bottom: 3px solid var(--outline-dark, rgba(0, 0, 0, 1));
+  border-right: 3px solid var(--outline-dark, rgba(0, 0, 0, 1));
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Retro pixel effect for filled cells */
+.cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1.8px,
+    rgba(0, 0, 0, 0.1) 1.8px,
+    rgba(0, 0, 0, 0.1) 3.6px
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cell.currentPiece {
+  border: none;
+  border-top: 2.7px solid var(--outline-light, rgba(255, 255, 255, 1));
+  border-left: 2.7px solid var(--outline-light, rgba(255, 255, 255, 1));
+  border-bottom: 2.7px solid var(--outline-dark, rgba(0, 0, 0, 1));
+  border-right: 2.7px solid var(--outline-dark, rgba(0, 0, 0, 1));
+  box-shadow: 
+    0 0 6.48px rgba(0, 212, 255, 0.3),
+    inset 1.8px 1.8px 0 var(--outline-light, rgba(255, 255, 255, 0.7)),
+    inset -1.8px -1.8px 0 var(--outline-dark, rgba(0, 0, 0, 0.7));
+  z-index: 3;
+}
+
+.cell.currentPiece::after {
+  z-index: 11;
+}
+
+.logoCell {
+  width: 12.96px;
+  height: 12.96px;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.2);
+  position: relative;
+  z-index: 5;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 15, 30, 0.95);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.overlayContent {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+  border: 2.592px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12.96px;
+  padding: 1.62rem 1.296rem;
+  text-align: center;
+  max-width: 259.2px;
+  width: 90%;
+  box-shadow: 
+    0 12.96px 38.88px rgba(0, 0, 0, 0.8),
+    0 0 25.92px rgba(0, 212, 255, 0.2),
+    inset 0 0 25.92px rgba(0, 212, 255, 0.05);
+  animation: slideUp 0.3s ease-out;
+  position: relative;
+}
+
+.overlayContent::before {
+  content: '';
+  position: absolute;
+  top: -5.184px;
+  left: -5.184px;
+  right: -5.184px;
+  bottom: -5.184px;
+  background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 50%, #0f0f1e 100%);
+  border-radius: 15.552px;
+  z-index: -1;
+  box-shadow: 
+    0 0 0 1.296px rgba(0, 212, 255, 0.3),
+    inset 0 0 25.92px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(16.2px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.overlayContent h2 {
+  font-size: 1.134rem;
+  margin: 0 0 0.486rem 0;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00D4FF 0%, #0052D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.overlayContent p {
+  font-size: 0.729rem;
+  margin: 0 0 0.972rem 0;
+  opacity: 0.9;
+}
+
+.finalScore {
+  font-size: 0.972rem !important;
+  font-weight: 700;
+  margin: 0 0 0.972rem 0 !important;
+  opacity: 1 !important;
+}
+
+.resetButton {
+  background: linear-gradient(135deg, #00D4FF 0%, #0052D4 100%);
+  color: white;
+  border: none;
+  border-radius: 7.776px;
+  padding: 0.567rem 1.296rem;
+  font-size: 0.648rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.648rem;
+  box-shadow: 0 2.592px 7.776px rgba(0, 212, 255, 0.3);
+}
+
+.resetButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5.4px 14.4px rgba(0, 212, 255, 0.4);
+}
+
+.resetButton:active {
+  transform: translateY(0);
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.controlButtons {
+  display: flex;
+  gap: 0.486rem;
+  align-items: center;
+  padding: 0.648rem;
+  background: rgba(0, 82, 212, 0.1);
+  border-radius: 10.368px;
+  border: 1.296px solid rgba(0, 212, 255, 0.2);
+  box-shadow: inset 0 1.296px 5.184px rgba(0, 0, 0, 0.3);
+}
+
+.middleButtons {
+  display: flex;
+  gap: 0.324rem;
+}
+
+.controlBtn {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 82, 212, 0.4) 100%);
+  color: #00D4FF;
+  border: 1.296px solid rgba(0, 212, 255, 0.5);
+  border-radius: 7.776px;
+  width: 32.4px;
+  height: 32.4px;
+  font-size: 0.972rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 2.592px 5.184px rgba(0, 0, 0, 0.3),
+    inset 0 1.296px 2.592px rgba(0, 212, 255, 0.2);
+  text-shadow: 0 0 5.184px rgba(0, 212, 255, 0.6);
+}
+
+.controlBtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.4) 0%, rgba(0, 82, 212, 0.5) 100%);
+  border-color: rgba(0, 212, 255, 0.7);
+  box-shadow: 
+    0 4.86px 9.72px rgba(0, 0, 0, 0.4),
+    inset 0 1.62px 3.24px rgba(0, 212, 255, 0.3),
+    0 0 9.72px rgba(0, 212, 255, 0.4);
+}
+
+.controlBtn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 1.62px 3.24px rgba(0, 0, 0, 0.3),
+    inset 0 1.62px 3.24px rgba(0, 212, 255, 0.2);
+}
+
+.keyboardHints {
+  font-size: 0.567rem;
+  color: rgba(0, 212, 255, 0.7);
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 2.592px rgba(0, 212, 255, 0.3);
+}
+
+.startButtonOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #00D4FF 0%, #0052D4 100%);
+  color: white;
+  border: none;
+  border-radius: 7.776px;
+  padding: 0.648rem 1.296rem;
+  font-size: 0.81rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 
+    0 3.3696px 10.1088px rgba(0, 212, 255, 0.5),
+    0 0 12.96px rgba(0, 212, 255, 0.3);
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  min-width: 162px;
+}
+
+.startButtonOverlay:hover {
+  transform: translate(-50%, -50%) translateY(-2px);
+  box-shadow: 
+    0 4.86px 12.96px rgba(0, 212, 255, 0.6),
+    0 0 19.44px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(135deg, #00E5FF 0%, #0066FF 100%);
+}
+
+.startButtonOverlay:active {
+  transform: translate(-50%, -50%) translateY(0);
+  box-shadow: 
+    0 1.62px 6.48px rgba(0, 212, 255, 0.4),
+    0 0 9.72px rgba(0, 212, 255, 0.3);
+}
+
+.leaderboardButtonOverlay {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  border: none;
+  border-radius: 7.776px;
+  padding: 0.486rem 0.972rem;
+  font-size: 0.67392rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 
+    0 2.69568px 8.08704px rgba(255, 215, 0, 0.5),
+    0 0 12.96px rgba(255, 215, 0, 0.3);
+  z-index: 101;
+  backdrop-filter: blur(8px);
+  min-width: 162px;
+}
+
+.leaderboardButtonOverlay:hover {
+  transform: translate(-50%, -50%) translateY(-2px);
+  box-shadow: 
+    0 3.888px 10.368px rgba(255, 215, 0, 0.6),
+    0 0 19.44px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #FFED4E 0%, #FFB347 100%);
+}
+
+.leaderboardButtonOverlay:active {
+  transform: translate(-50%, -50%) translateY(0);
+  box-shadow: 
+    0 1.296px 5.184px rgba(255, 215, 0, 0.4),
+    0 0 9.72px rgba(255, 215, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .cell {
+    width: 19.602px;
+    height: 17.334px;
+  }
+
+  .logoCell {
+    width: 12.96px;
+    height: 12.96px;
+  }
+
+  .infoBox {
+    padding: 0.298362075rem 0.81rem;
+    min-width: 64.8px;
+  }
+
+  .infoBox h3 {
+    font-size: 0.607773375rem;
+  }
+
+  .infoBox p {
+    font-size: 1.012955625rem;
+  }
+}

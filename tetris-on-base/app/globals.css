@@ -1,0 +1,111 @@
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: var(--font-source-code-pro), monospace;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem calc(0.25rem + 2px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    code {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+}
+
+/* Match OnchainKit Wallet component height to NetworkIndicator */
+header button,
+header [role="button"],
+header [class*="Button"],
+header [class*="wallet"],
+header [class*="Wallet"],
+header [class*="okui"] button,
+header button[class*="okui"],
+header [class*="okui"] [role="button"],
+header [class*="okui"] [class*="Button"] {
+  height: auto !important;
+  min-height: calc(0.45rem + 0.7875rem + 0.45rem + 1.8px) !important; /* padding-top + font-size + padding-bottom + border */
+  padding: 0.45rem 0.9rem !important;
+  font-size: 0.7875rem !important;
+  line-height: 1.2 !important;
+}
+
+/* More specific targeting for OnchainKit wallet wrapper */
+header > div > div[class*="okui"],
+header > div[class*="okui"] {
+  display: flex;
+  align-items: center;
+}
+
+header > div > div[class*="okui"] button,
+header > div[class*="okui"] button {
+  height: auto !important;
+  min-height: calc(0.45rem + 0.7875rem + 0.45rem + 1.8px) !important;
+  padding: 0.45rem 0.9rem !important;
+  font-size: 0.7875rem !important;
+  line-height: 1.2 !important;
+}
+
+@media (max-width: 768px) {
+  header button,
+  header [role="button"],
+  header [class*="Button"],
+  header [class*="wallet"],
+  header [class*="Wallet"],
+  header [class*="okui"] button,
+  header button[class*="okui"],
+  header [class*="okui"] [role="button"],
+  header [class*="okui"] [class*="Button"],
+  header > div > div[class*="okui"] button,
+  header > div[class*="okui"] button {
+    min-height: calc(0.36rem + 0.675rem + 0.36rem + 1.8px) !important;
+    padding: 0.36rem 0.675rem !important;
+    font-size: 0.675rem !important;
+  }
+}

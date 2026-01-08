@@ -1,0 +1,251 @@
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.27rem;
+  margin-bottom: 0.8748rem;
+  padding: 0;
+  width: 100%;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.21384rem;
+}
+
+.tightSpace {
+  margin-right: -0.3rem;
+  width: 0;
+}
+
+.letter {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1.6038px;
+  padding: 1.0692px;
+}
+
+.letterRow {
+  display: flex;
+  gap: 1.6038px;
+}
+
+.letterCell {
+  width: 4.2768px;
+  height: 4.2768px;
+  background: transparent;
+  border-radius: 1.0692px;
+  transition: all 0.2s;
+}
+
+.letterCell.filled {
+  background: linear-gradient(135deg, #00D4FF 0%, #0052D4 100%);
+  box-shadow: 
+    0 0 3.2076px rgba(0, 212, 255, 0.6),
+    inset 0 1.0692px 2.1384px rgba(255, 255, 255, 0.3),
+    inset 0 -1.0692px 2.1384px rgba(0, 0, 0, 0.2);
+  border: 0.5346px solid rgba(0, 212, 255, 0.7);
+  position: relative;
+}
+
+.letterCell.filled::after {
+  content: '';
+  position: absolute;
+  top: 0.5346px;
+  left: 0.5346px;
+  right: 0.5346px;
+  bottom: 0.5346px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1.0692px,
+    rgba(0, 212, 255, 0.1) 1.0692px,
+    rgba(0, 212, 255, 0.1) 2.1384px
+  );
+  pointer-events: none;
+  border-radius: 0.5346px;
+}
+
+.letterCell.filled:hover {
+  background: linear-gradient(135deg, #00E5FF 0%, #0066FF 100%);
+  box-shadow: 
+    0 0 5.346px rgba(0, 212, 255, 0.9),
+    inset 0 1.0692px 2.1384px rgba(255, 255, 255, 0.4),
+    inset 0 -1.0692px 2.1384px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* 15% smaller for "TETRIS" */
+.letterSmall {
+  transform: scale(0.85);
+}
+
+.letterSmall .letterCell {
+  width: 3.63528px;
+  height: 3.63528px;
+}
+
+.letterSmall .letterRow {
+  gap: 1.36323px;
+}
+
+.letterSmall .letter {
+  gap: 1.36323px;
+}
+
+/* "ON BASE" - increased by 15% more (from 0.36 to 0.414) */
+.letterTiny {
+  transform: scale(0.414);
+  font-weight: bold;
+}
+
+.letterTiny .letterCell {
+  width: 1.7707248px;
+  height: 1.7707248px;
+}
+
+.letterTiny .letterRow {
+  gap: 0.45px;
+}
+
+.letterTiny .letter {
+  gap: 0.45px;
+}
+
+.letterTiny .letterCell.filled {
+  border-width: 0.72px;
+  box-shadow: 
+    0 0 2.25px rgba(0, 212, 255, 0.8),
+    inset 0 1.35px 2.7px rgba(255, 255, 255, 0.4),
+    inset 0 -1.35px 2.7px rgba(0, 0, 0, 0.3);
+}
+
+.letterTiny .letterCell.filled::after {
+  border-width: 0.72px;
+}
+
+/* Responsive sizing */
+@media (min-width: 768px) {
+  .letterCell {
+    width: 5.346px;
+    height: 5.346px;
+  }
+  
+  .titleContainer {
+    gap: 0.36rem;
+  }
+  
+  .titleRow {
+    gap: 0.32076rem;
+  }
+  
+  .letterRow {
+    gap: 2.1384px;
+  }
+  
+  .letter {
+    gap: 2.1384px;
+  }
+  
+  .letterSmall .letterCell {
+    width: 4.5441px;
+    height: 4.5441px;
+  }
+  
+  .letterSmall .letterRow {
+    gap: 1.81764px;
+  }
+  
+  .letterSmall .letter {
+    gap: 1.81764px;
+  }
+  
+  .letterTiny .letterCell {
+    width: 2.12432976px;
+    height: 2.12432976px;
+  }
+  
+  .letterTiny .letterRow {
+    gap: 0.54px;
+  }
+  
+  .letterTiny .letter {
+    gap: 0.54px;
+  }
+  
+  .letterTiny .letterCell.filled {
+    border-width: 0.855px;
+    box-shadow: 
+      0 0 2.7px rgba(0, 212, 255, 0.8),
+      inset 0 1.62px 3.24px rgba(255, 255, 255, 0.4),
+      inset 0 -1.62px 3.24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .letterTiny .letterCell.filled::after {
+    border-width: 0.855px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .letterCell {
+    width: 6.4152px;
+    height: 6.4152px;
+  }
+  
+  .titleContainer {
+    gap: 0.45rem;
+  }
+  
+  .titleRow {
+    gap: 0.40095rem;
+  }
+  
+  .letterRow {
+    gap: 2.673px;
+  }
+  
+  .letter {
+    gap: 2.673px;
+  }
+  
+  .letterSmall .letterCell {
+    width: 5.45292px;
+    height: 5.45292px;
+  }
+  
+  .letterSmall .letterRow {
+    gap: 2.27205px;
+  }
+  
+  .letterSmall .letter {
+    gap: 2.27205px;
+  }
+  
+  .letterTiny .letterCell {
+    width: 2.53479132px;
+    height: 2.53479132px;
+  }
+  
+  .letterTiny .letterRow {
+    gap: 0.675px;
+  }
+  
+  .letterTiny .letter {
+    gap: 0.675px;
+  }
+  
+  .letterTiny .letterCell.filled {
+    border-width: 0.99px;
+    box-shadow: 
+      0 0 3.15px rgba(0, 212, 255, 0.8),
+      inset 0 1.8px 3.6px rgba(255, 255, 255, 0.4),
+      inset 0 -1.8px 3.6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .letterTiny .letterCell.filled::after {
+    border-width: 0.99px;
+  }
+}

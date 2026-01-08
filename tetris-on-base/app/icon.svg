@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Orange Tetris T-piece: top-middle block + bottom row (left, middle, right) -->
+  <!-- Centered and larger blocks -->
+  
+  <!-- Top-middle block -->
+  <rect x="22" y="12" width="20" height="20" fill="#FF8000" stroke="#804000" stroke-width="1.5"/>
+  <!-- Bottom-left block -->
+  <rect x="2" y="32" width="20" height="20" fill="#FF8000" stroke="#804000" stroke-width="1.5"/>
+  <!-- Bottom-middle block -->
+  <rect x="22" y="32" width="20" height="20" fill="#FF8000" stroke="#804000" stroke-width="1.5"/>
+  <!-- Bottom-right block -->
+  <rect x="42" y="32" width="20" height="20" fill="#FF8000" stroke="#804000" stroke-width="1.5"/>
+  
+  <!-- 3D effect - light edges (top and left) for top-middle block -->
+  <line x1="22" y1="12" x2="42" y2="12" stroke="#FFD0B0" stroke-width="2.5"/>
+  <line x1="22" y1="12" x2="22" y2="32" stroke="#FFD0B0" stroke-width="2.5"/>
+  
+  <!-- 3D effect - light edges for bottom row -->
+  <line x1="2" y1="32" x2="22" y2="32" stroke="#FFD0B0" stroke-width="2.5"/>
+  <line x1="2" y1="32" x2="2" y2="52" stroke="#FFD0B0" stroke-width="2.5"/>
+  <line x1="22" y1="32" x2="42" y2="32" stroke="#FFD0B0" stroke-width="2.5"/>
+  <line x1="22" y1="32" x2="22" y2="52" stroke="#FFD0B0" stroke-width="2.5"/>
+  <line x1="42" y1="32" x2="62" y2="32" stroke="#FFD0B0" stroke-width="2.5"/>
+  <line x1="42" y1="32" x2="42" y2="52" stroke="#FFD0B0" stroke-width="2.5"/>
+  
+  <!-- 3D effect - dark edges (bottom and right) -->
+  <line x1="2" y1="52" x2="62" y2="52" stroke="#804000" stroke-width="2.5"/>
+  <line x1="42" y1="12" x2="42" y2="32" stroke="#804000" stroke-width="2.5"/>
+  <line x1="62" y1="32" x2="62" y2="52" stroke="#804000" stroke-width="2.5"/>
+</svg>
